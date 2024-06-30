@@ -30,7 +30,8 @@ const useStyles = createStyles(({ css, token }) => {
 });
 
 const ListItem = memo<ListItemProps & { avatar: string; avatarBackground?: string }>(
-  ({ avatar, avatarBackground, active, showAction, actions, title, ...props }) => {
+  // ({ avatar, avatarBackground, active, showAction, actions, title, ...props }) => {
+  ({ avatar, avatarBackground, title, ...props }) => {
     const ref = useRef(null);
     const isHovering = useHover(ref);
     const mobile = useServerConfigStore((s) => s.isMobile);
@@ -51,16 +52,29 @@ const ListItem = memo<ListItemProps & { avatar: string; avatarBackground?: strin
 
     return (
       <Item
-        actions={actions}
-        active={mobile ? false : active}
+        actions={[]}
+        active={false}
         avatar={avatarRender}
         className={cx(styles.container, mobile && styles.mobile)}
         ref={ref}
-        showAction={actions && (isHovering || showAction || mobile)}
+        showAction={false}
         title={<span className={styles.title}>{title}</span>}
         {...(props as any)}
       />
     );
+
+    // return (
+    //   <Item
+    //     actions={actions}
+    //     active={mobile ? false : active}
+    //     avatar={avatarRender}
+    //     className={cx(styles.container, mobile && styles.mobile)}
+    //     ref={ref}
+    //     showAction={actions && (isHovering || showAction || mobile)}
+    //     title={<span className={styles.title}>{title}</span>}
+    //     {...(props as any)}
+    //   />
+    // );
   },
 );
 

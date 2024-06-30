@@ -1,7 +1,7 @@
-import { ActionIcon, Icon } from '@lobehub/ui';
+import { Icon } from '@lobehub/ui';
 import { App, Dropdown, DropdownProps, MenuProps } from 'antd';
 import { createStyles } from 'antd-style';
-import { MoreVertical, PencilLine, Plus, Settings2, Trash } from 'lucide-react';
+import { PencilLine, Plus, Settings2, Trash } from 'lucide-react';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -125,14 +125,15 @@ const Actions = memo<ActionsProps>(
         onOpenChange={onOpenChange}
         trigger={['click']}
       >
-        <ActionIcon
+        {/* <ActionIcon
           icon={MoreVertical}
           onClick={(e) => {
             e.stopPropagation();
           }}
           size={{ blockSize: 22, fontSize: 16 }}
           style={{ marginRight: -8 }}
-        />
+        /> */}
+        <div></div>
       </Dropdown>
     );
   },

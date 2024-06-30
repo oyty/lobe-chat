@@ -1,13 +1,11 @@
 'use client';
 
-import { ActionIcon, EditableMessage } from '@lobehub/ui';
-import { Skeleton } from 'antd';
-import { Edit } from 'lucide-react';
+import { EditableMessage } from '@lobehub/ui';
+import { Skeleton, Button } from 'antd';
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 import useMergeState from 'use-merge-value';
-
 import SidebarHeader from '@/components/SidebarHeader';
 import AgentInfo from '@/features/AgentInfo';
 import { useOpenChatSettings } from '@/hooks/useInterceptingRoutes';
@@ -64,9 +62,10 @@ const SystemRole = memo(() => {
     <Flexbox height={'fit-content'}>
       <SidebarHeader
         actions={
-          <ActionIcon icon={Edit} onClick={handleOpenWithEdit} size={'small'} title={t('edit')} />
+          // <ActionIcon icon={Edit} onClick={handleOpenWithEdit} size={'small'} title={t('edit')} />
+          <div></div>
         }
-        title={t('settingAgent.prompt.title', { ns: 'setting' })}
+        title={`${t('settingAgent.prompt.title', { ns: 'setting' })}`}
       />
       <Flexbox
         className={styles.promptBox}
@@ -100,6 +99,9 @@ const SystemRole = memo(() => {
                     style={{ marginBottom: 16 }}
                   />
                 ),
+                footer: (
+                  <Button onClick={() => setOpen(false)} type={'primary'}>{t('ok')}</Button>
+                )
               }}
               onChange={(e) => {
                 updateAgentConfig({ systemRole: e });
@@ -112,8 +114,8 @@ const SystemRole = memo(() => {
               text={{
                 cancel: t('cancel'),
                 confirm: t('ok'),
-                edit: t('edit'),
-                title: t('settingAgent.prompt.title', { ns: 'setting' }),
+                edit: t('close'),
+                title: `${ t('settingAgent.prompt.title', { ns: 'setting' })}`,
               }}
               value={systemRole}
             />

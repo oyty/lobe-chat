@@ -5,20 +5,19 @@ import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
 import pkg from '@/../package.json';
-import ModelTag from '@/components/ModelTag';
 import ChatList from '@/features/Conversation/components/ChatList';
 import { useAgentStore } from '@/store/agent';
 import { agentSelectors } from '@/store/agent/selectors';
 import { useSessionStore } from '@/store/session';
 import { sessionMetaSelectors, sessionSelectors } from '@/store/session/selectors';
 
-import PluginTag from '../PluginTag';
 import { useStyles } from './style';
 import { FieldType } from './type';
 
 const Preview = memo<FieldType & { title?: string }>(
   ({ title, withSystemRole, withBackground, withFooter }) => {
-    const [model, plugins, systemRole] = useAgentStore((s) => [
+    // const [model, plugins, systemRole] = useAgentStore((s) => [
+      const [systemRole] = useAgentStore((s) => [
       agentSelectors.currentAgentModel(s),
       agentSelectors.currentAgentPlugins(s),
       agentSelectors.currentAgentSystemRole(s),
@@ -47,8 +46,8 @@ const Preview = memo<FieldType & { title?: string }>(
                   desc={displayDesc}
                   tag={
                     <>
-                      <ModelTag model={model} />
-                      {plugins?.length > 0 && <PluginTag plugins={plugins} />}
+                      {/* <ModelTag model={model} /> */}
+                      {/* {plugins?.length > 0 && <PluginTag plugins={plugins} />} */}
                     </>
                   }
                   title={displayTitle}

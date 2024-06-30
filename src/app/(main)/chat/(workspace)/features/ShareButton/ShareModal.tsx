@@ -47,25 +47,26 @@ const DEFAULT_FIELD_VALUE: FieldType = {
 
 const ShareModal = memo<ModalProps>(({ onCancel, open }) => {
   const [fieldValue, setFieldValue] = useState<FieldType>(DEFAULT_FIELD_VALUE);
-  const [tab, setTab] = useState<Tab>(Tab.Screenshot);
+  // const [tab, setTab] = useState<Tab>(Tab.Screenshot);
+  const [tab] = useState<Tab>(Tab.Screenshot);
   const { t } = useTranslation('chat');
   const avatar = useUserStore(userProfileSelectors.userAvatar);
   const [shareLoading, shareToShareGPT] = useChatStore((s) => [s.shareLoading, s.shareToShareGPT]);
   const { loading, onDownload, title } = useScreenshot(fieldValue.imageType);
 
-  const options: SegmentedProps['options'] = useMemo(
-    () => [
-      {
-        label: t('shareModal.screenshot'),
-        value: Tab.Screenshot,
-      },
-      {
-        label: 'ShareGPT',
-        value: Tab.ShareGPT,
-      },
-    ],
-    [],
-  );
+  // const options: SegmentedProps['options'] = useMemo(
+  //   () => [
+  //     {
+  //       label: t('shareModal.screenshot'),
+  //       value: Tab.Screenshot,
+  //     },
+  //     {
+  //       label: 'ShareGPT',
+  //       value: Tab.ShareGPT,
+  //     },
+  //   ],
+  //   [],
+  // );
 
   const settings: FormItemProps[] = useMemo(
     () => [
@@ -141,13 +142,13 @@ const ShareModal = memo<ModalProps>(({ onCancel, open }) => {
       title={t('share', { ns: 'common' })}
     >
       <Flexbox gap={16}>
-        <Segmented
+        {/* <Segmented
           block
           onChange={(value) => setTab(value as Tab)}
           options={options}
           style={{ width: '100%' }}
           value={tab}
-        />
+        /> */}
         {tab === Tab.Screenshot && <Preview title={title} {...fieldValue} />}
         <Form
           initialValues={DEFAULT_FIELD_VALUE}
