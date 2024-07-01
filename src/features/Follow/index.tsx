@@ -31,30 +31,30 @@ const Follow = memo(() => {
   const { t } = useTranslation('common');
   return (
     <Flexbox gap={8} horizontal>
-      <Link href={GITHUB} rel="noreferrer" target={'_blank'}>
-        <ActionIcon
-          className={styles.icon}
-          icon={SiGithub as any}
-          title={t('follow', { name: 'GitHub' })}
-        />
-      </Link>
-      <Link href={X} rel="noreferrer" target={'_blank'}>
-        <ActionIcon className={styles.icon} icon={SiX as any} title={t('follow', { name: 'X' })} />
-      </Link>
-      <Link href={DISCORD} rel="noreferrer" target={'_blank'}>
-        <ActionIcon
-          className={styles.icon}
-          icon={SiDiscord as any}
-          title={t('follow', { name: 'Discord' })}
-        />
-      </Link>
-      <Link href={MEDIDUM} rel="noreferrer" target={'_blank'}>
-        <ActionIcon
-          className={styles.icon}
-          icon={SiMedium as any}
-          title={t('follow', { name: 'Medium' })}
-        />
-      </Link>
+      {/*<Link href={GITHUB} rel="noreferrer" target={'_blank'}>*/}
+      {/*  <ActionIcon*/}
+      {/*    className={styles.icon}*/}
+      {/*    icon={SiGithub as any}*/}
+      {/*    title={t('follow', { name: 'GitHub' })}*/}
+      {/*  />*/}
+      {/*</Link>*/}
+      {/*<Link href={X} rel="noreferrer" target={'_blank'}>*/}
+      {/*  <ActionIcon className={styles.icon} icon={SiX as any} title={t('follow', { name: 'X' })} />*/}
+      {/*</Link>*/}
+      {/*<Link href={DISCORD} rel="noreferrer" target={'_blank'}>*/}
+      {/*  <ActionIcon*/}
+      {/*    className={styles.icon}*/}
+      {/*    icon={SiDiscord as any}*/}
+      {/*    title={t('follow', { name: 'Discord' })}*/}
+      {/*  />*/}
+      {/*</Link>*/}
+      {/*<Link href={MEDIDUM} rel="noreferrer" target={'_blank'}>*/}
+      {/*  <ActionIcon*/}
+      {/*    className={styles.icon}*/}
+      {/*    icon={SiMedium as any}*/}
+      {/*    title={t('follow', { name: 'Medium' })}*/}
+      {/*  />*/}
+      {/*</Link>*/}
     </Flexbox>
   );
 });

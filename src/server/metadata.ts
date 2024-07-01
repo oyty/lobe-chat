@@ -23,7 +23,7 @@ export class Meta {
     const formatedTitle = formatTitleLength(title, 21);
     // eslint-disable-next-line no-param-reassign
     const formatedDescription = formatDescLength(description, tags);
-    const siteTitle = title.includes('LobeChat') ? title : title + ' · LobeChat';
+    const siteTitle = title.includes('云路助手') ? title : title + ' · 云路助手';
     return {
       alternates: { canonical: getCanonicalUrl(url) },
       description: formatedDescription,
@@ -85,7 +85,7 @@ export class Meta {
         },
       ],
       locale: 'en-US',
-      siteName: 'LobeChat',
+      siteName: '云路助手',
       title,
       type,
       url,

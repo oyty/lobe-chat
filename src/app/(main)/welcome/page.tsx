@@ -29,7 +29,7 @@ const Page = async () => {
   return (
     <>
       <StructuredData ld={ld} />
-      <Logo mobile={mobile} />
+      {/*<Logo mobile={mobile} />*/}
       <Hero />
       <Actions mobile={mobile} />
     </>
