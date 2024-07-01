@@ -8,4 +8,4 @@ scripts
 docs
 .github
 *.md
-.env.example
+.env

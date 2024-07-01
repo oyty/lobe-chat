@@ -106,15 +106,15 @@ export const useMenu = () => {
   /* ↑ cloud slot ↑ */
 
   const pwa: MenuProps['items'] = [
-    {
-      icon: <Icon icon={Download} />,
-      key: 'pwa',
-      label: t('installPWA'),
-      onClick: () => install(),
-    },
-    {
-      type: 'divider',
-    },
+    // {
+    //   icon: <Icon icon={Download} />,
+    //   key: 'pwa',
+    //   label: t('installPWA'),
+    //   onClick: () => install(),
+    // },
+    // {
+    //   type: 'divider',
+    // },
   ];
 
   const data = !isLogin
