@@ -65,7 +65,8 @@ const DefaultMode = memo(() => {
           label: name,
         })),
         {
-          children: <SessionList dataSource={defaultSessions || []} />,
+          // children: <SessionList dataSource={defaultSessions || []} />,
+          children: <SessionList dataSource={defaultSessions} showAddButton={false} />,
           extra: <Actions openConfigModal={() => setConfigGroupModalOpen(true)} />,
           key: SessionDefaultGroup.Default,
           label: t('defaultList'),
