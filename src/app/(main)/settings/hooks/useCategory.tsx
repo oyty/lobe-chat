@@ -49,15 +49,15 @@ export const useCategory = () => {
         //     </Link>
         //   ),
         // },
-        // showLLM && {
-        //   icon: <Icon icon={Brain} />,
-        //   key: SettingsTabs.LLM,
-        //   label: (
-        //     <Link href={'/settings/llm'} onClick={(e) => e.preventDefault()}>
-        //       {t('tab.llm')}
-        //     </Link>
-        //   ),
-        // },
+        showLLM && {
+          icon: <Icon icon={Brain} />,
+          key: SettingsTabs.LLM,
+          label: (
+            <Link href={'/settings/llm'} onClick={(e) => e.preventDefault()}>
+              {t('tab.llm')}
+            </Link>
+          ),
+        },
         //
         // {
         //   icon: <Icon icon={Mic2} />,

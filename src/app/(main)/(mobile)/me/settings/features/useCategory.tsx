@@ -37,11 +37,11 @@ export const useCategory = () => {
     //     </Flexbox>
     //   ),
     // },
-    // showLLM && {
-    //   icon: Brain,
-    //   key: SettingsTabs.LLM,
-    //   label: t('tab.llm'),
-    // },
+    showLLM && {
+      icon: Brain,
+      key: SettingsTabs.LLM,
+      label: t('tab.llm'),
+    },
     // { icon: Mic2, key: SettingsTabs.TTS, label: t('tab.tts') },
     // {
     //   icon: Bot,

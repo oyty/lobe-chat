@@ -32,12 +32,12 @@ const SettingsModal = memo<SettingsModalProps>(({ browser, os, mobile }) => {
   return (
     <>
       {tab === SettingsTabs.Common && <Common />}
-      {/*{tab === SettingsTabs.SystemAgent && <SystemAgent />}*/}
-      {/*{tab === SettingsTabs.Sync && <Sync browser={browser} mobile={mobile} os={os} />}*/}
-      {/*{tab === SettingsTabs.LLM && <LLM />}*/}
-      {/*{tab === SettingsTabs.TTS && <TTS />}*/}
-      {/*{tab === SettingsTabs.Agent && <Agent />}*/}
-      {/*{tab === SettingsTabs.About && <About mobile={mobile} />}*/}
+      {tab === SettingsTabs.SystemAgent && <SystemAgent />}
+      {tab === SettingsTabs.Sync && <Sync browser={browser} mobile={mobile} os={os} />}
+      {tab === SettingsTabs.LLM && <LLM />}
+      {tab === SettingsTabs.TTS && <TTS />}
+      {tab === SettingsTabs.Agent && <Agent />}
+      {tab === SettingsTabs.About && <About mobile={mobile} />}
     </>
   );
 });
