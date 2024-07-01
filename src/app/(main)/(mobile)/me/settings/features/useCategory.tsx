@@ -20,39 +20,39 @@ export const useCategory = () => {
       key: SettingsTabs.Common,
       label: t('tab.common'),
     },
-    {
-      icon: Sparkles,
-      key: SettingsTabs.SystemAgent,
-      label: t('tab.system-agent'),
-    },
-    enableWebrtc && {
-      icon: Cloudy,
-      key: SettingsTabs.Sync,
-      label: (
-        <Flexbox align={'center'} gap={8} horizontal>
-          {t('tab.sync')}
-          <Tag bordered={false} color={'warning'}>
-            {t('tab.experiment')}
-          </Tag>
-        </Flexbox>
-      ),
-    },
-    showLLM && {
-      icon: Brain,
-      key: SettingsTabs.LLM,
-      label: t('tab.llm'),
-    },
-    { icon: Mic2, key: SettingsTabs.TTS, label: t('tab.tts') },
-    {
-      icon: Bot,
-      key: SettingsTabs.Agent,
-      label: t('tab.agent'),
-    },
-    {
-      icon: Info,
-      key: SettingsTabs.About,
-      label: t('tab.about'),
-    },
+    // {
+    //   icon: Sparkles,
+    //   key: SettingsTabs.SystemAgent,
+    //   label: t('tab.system-agent'),
+    // },
+    // enableWebrtc && {
+    //   icon: Cloudy,
+    //   key: SettingsTabs.Sync,
+    //   label: (
+    //     <Flexbox align={'center'} gap={8} horizontal>
+    //       {t('tab.sync')}
+    //       <Tag bordered={false} color={'warning'}>
+    //         {t('tab.experiment')}
+    //       </Tag>
+    //     </Flexbox>
+    //   ),
+    // },
+    // showLLM && {
+    //   icon: Brain,
+    //   key: SettingsTabs.LLM,
+    //   label: t('tab.llm'),
+    // },
+    // { icon: Mic2, key: SettingsTabs.TTS, label: t('tab.tts') },
+    // {
+    //   icon: Bot,
+    //   key: SettingsTabs.Agent,
+    //   label: t('tab.agent'),
+    // },
+    // {
+    //   icon: Info,
+    //   key: SettingsTabs.About,
+    //   label: t('tab.about'),
+    // },
   ].filter(Boolean) as CellProps[];
 
   return items.map((item) => ({

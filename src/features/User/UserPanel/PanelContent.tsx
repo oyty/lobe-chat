@@ -50,12 +50,12 @@ const PanelContent = memo<{ closePopover: () => void }>(({ closePopover }) => {
       {!enableAuth ? (
         <>
           <UserInfo />
-          <DataStatistics />
+          {/*<DataStatistics />*/}
         </>
       ) : isLoginWithAuth ? (
         <>
           <UserInfo onClick={handleOpenProfile} />
-          <DataStatistics />
+          {/*<DataStatistics />*/}
         </>
       ) : (
         <UserLoginOrSignup onClick={handleSignIn} />
@@ -74,7 +74,7 @@ const PanelContent = memo<{ closePopover: () => void }>(({ closePopover }) => {
           <BrandWatermark />
         )}
         <Flexbox align={'center'} flex={'none'} gap={6} horizontal>
-          <LangButton />
+          {/*<LangButton />*/}
           <ThemeButton />
         </Flexbox>
       </Flexbox>

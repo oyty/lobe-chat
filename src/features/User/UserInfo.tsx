@@ -48,10 +48,10 @@ const UserInfo = memo<UserInfoProps>(({ avatarProps, ...rest }) => {
         <UserAvatar background={theme.colorFill} size={48} {...avatarProps} />
         <Flexbox flex={1} gap={6}>
           <div className={styles.nickname}>{nickname}</div>
-          <div className={styles.username}>{username}</div>
+          {/*<div className={styles.username}>{username}</div>*/}
         </Flexbox>
       </Flexbox>
-      <PlanTag />
+      {/*<PlanTag />*/}
     </Flexbox>
   );
 });

@@ -20,12 +20,12 @@ const UserBanner = memo(() => {
       {!enableAuth ? (
         <>
           <UserInfo />
-          <DataStatistics paddingInline={12} />
+          {/*<DataStatistics paddingInline={12} />*/}
         </>
       ) : isLoginWithAuth ? (
         <>
           <UserInfo onClick={() => router.push('/me/profile')} />
-          <DataStatistics paddingInline={12} />
+          {/*<DataStatistics paddingInline={12} />*/}
         </>
       ) : (
         <UserLoginOrSignup onClick={() => router.push('/login')} />

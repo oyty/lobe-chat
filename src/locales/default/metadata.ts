@@ -1,6 +1,6 @@
 export default {
   chat: {
-    description: 'LobeChat 带给你最好的 ChatGPT, OLLaMA, Gemini, Claude WebUI 使用体验',
+    description: '云路助手APP，在您的设备上安装，以享有更全面的体验和便捷的访问。',
     title: 'LobeChat：个人 LLM 效能工具，给自己一个更聪明的大脑',
   },
   market: {

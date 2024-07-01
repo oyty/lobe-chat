@@ -33,6 +33,7 @@ export const usePWAInstall = () => {
       const pwa: any = document.querySelector(`#${PWA_INSTALL_ID}`);
       if (!pwa) return;
       pwa.externalPromptEvent = pwaInstallHandler.getEvent();
+      console.log(pwa.externalPromptEvent);
       pwa?.showDialog(true);
     },
   };

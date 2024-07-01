@@ -89,7 +89,7 @@ export default {
     },
   },
   information: '社区与资讯',
-  installPWA: '安装浏览器应用 (PWA)',
+  installPWA: '安装浏览器应用',
   lang: {
     'ar': '阿拉伯语',
     'bg-BG': '保加利亚语',
@@ -199,7 +199,7 @@ export default {
     anonymousNickName: '匿名用户',
     billing: '账单管理',
     data: '数据存储',
-    defaultNickname: '社区版用户',
+    defaultNickname: '云路助手',
     discord: '社区支持',
     docs: '使用文档',
     email: '邮件支持',

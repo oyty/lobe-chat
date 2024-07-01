@@ -38,21 +38,24 @@ const Header = memo(() => {
     <Flexbox className={styles.top} gap={16} padding={16}>
       <Flexbox distribution={'space-between'} horizontal>
         <Flexbox align={'center'} gap={4} horizontal>
-          <LobeChat className={styles.logo} size={36} type={'text'} />
-          {enableWebrtc && <SyncStatusTag />}
+          {/*<LobeChat className={styles.logo} size={36} type={'text'} />*/}
+          {/*{enableWebrtc && <SyncStatusTag />}*/}
+          <div style={{fontSize: '26px', color: '#000', fontFamily: 'Nunito', fontWeight: 'bold'}}>
+            云路助手
+          </div>
         </Flexbox>
-        {showCreateSession && (
-          <ActionIcon
-            icon={MessageSquarePlus}
-            loading={isValidating}
-            onClick={() => mutate()}
-            size={DESKTOP_HEADER_ICON_SIZE}
-            style={{ flex: 'none' }}
-            title={t('newAgent')}
-          />
-        )}
+        {/*{showCreateSession && (*/}
+        {/*  <ActionIcon*/}
+        {/*    icon={MessageSquarePlus}*/}
+        {/*    loading={isValidating}*/}
+        {/*    onClick={() => mutate()}*/}
+        {/*    size={DESKTOP_HEADER_ICON_SIZE}*/}
+        {/*    style={{ flex: 'none' }}*/}
+        {/*    title={t('newAgent')}*/}
+        {/*  />*/}
+        {/*)}*/}
       </Flexbox>
-      <SessionSearchBar />
+      {/*<SessionSearchBar />*/}
     </Flexbox>
   );
 });

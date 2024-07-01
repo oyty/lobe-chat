@@ -8,9 +8,12 @@ const FullscreenLoading = memo<{ title?: string }>(({ title }) => {
   return (
     <Flexbox height={'100%'} style={{ userSelect: 'none' }} width={'100%'}>
       <Center flex={1} gap={12} width={'100%'}>
-        <LobeChat size={48} type={'combine'} />
+        {/*<LobeChat size={48} type={'combine'}/>*/}
+        <div style={{fontSize: '26px', color: '#000', fontFamily: 'Nunito', fontWeight: 'bold'}}>
+          云路助手
+        </div>
         <Center gap={16} horizontal>
-          <Icon icon={Loader2} spin />
+          <Icon icon={Loader2} spin/>
           {title}
         </Center>
       </Center>

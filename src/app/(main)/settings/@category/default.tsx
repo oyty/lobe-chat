@@ -5,7 +5,7 @@ const Category = () => {
   return (
     <>
       <CategoryContent />
-      <UpgradeAlert />
+      {/*<UpgradeAlert />*/}
     </>
   );
 };

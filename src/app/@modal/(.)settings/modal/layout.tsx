@@ -32,7 +32,7 @@ const Layout = memo<PropsWithChildren>(({ children }) => {
       category={
         <>
           <CategoryContent modal />
-          <UpgradeAlert />
+          {/*<UpgradeAlert />*/}
         </>
       }
     >

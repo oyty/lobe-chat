@@ -48,7 +48,7 @@ const SidebarLayout = ({ children, className, title, desc, ...rest }: SidebarLay
     >
       <Flexbox className={styles.header} gap={4}>
         <h1 className={styles.title}>{title || t('header.title')}</h1>
-        <p className={styles.desc}>{desc || t('header.desc')}</p>
+        {/*<p className={styles.desc}>{desc || t('header.desc')}</p>*/}
       </Flexbox>
       {children}
       <BrandWatermark paddingInline={12} />

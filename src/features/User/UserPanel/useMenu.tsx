@@ -50,7 +50,7 @@ const NewVersionBadge = memo(
     return (
       <Flexbox align={'center'} flex={1} gap={8} horizontal onClick={onClick} width={'100%'}>
         <span>{children}</span>
-        <Badge count={t('upgradeVersion.hasNew')} />
+        {/*<Badge count={t('upgradeVersion.hasNew')} />*/}
       </Flexbox>
     );
   },
@@ -120,92 +120,92 @@ export const useMenu = () => {
   const data = !isLogin
     ? []
     : ([
-        {
-          icon: <Icon icon={HardDriveDownload} />,
-          key: 'import',
-          label: <DataImporter>{t('import')}</DataImporter>,
-        },
-        isServerMode
-          ? null
-          : {
-              children: [
-                {
-                  key: 'allAgent',
-                  label: t('exportType.allAgent'),
-                  onClick: configService.exportAgents,
-                },
-                {
-                  key: 'allAgentWithMessage',
-                  label: t('exportType.allAgentWithMessage'),
-                  onClick: configService.exportSessions,
-                },
-                {
-                  key: 'globalSetting',
-                  label: t('exportType.globalSetting'),
-                  onClick: configService.exportSettings,
-                },
-                {
-                  type: 'divider',
-                },
-                {
-                  key: 'all',
-                  label: t('exportType.all'),
-                  onClick: configService.exportAll,
-                },
-              ],
-              icon: <Icon icon={HardDriveUpload} />,
-              key: 'export',
-              label: t('export'),
-            },
-        {
-          type: 'divider',
-        },
+        // {
+        //   icon: <Icon icon={HardDriveDownload} />,
+        //   key: 'import',
+        //   label: <DataImporter>{t('import')}</DataImporter>,
+        // },
+        // isServerMode
+        //   ? null
+        //   : {
+        //       children: [
+        //         {
+        //           key: 'allAgent',
+        //           label: t('exportType.allAgent'),
+        //           onClick: configService.exportAgents,
+        //         },
+        //         {
+        //           key: 'allAgentWithMessage',
+        //           label: t('exportType.allAgentWithMessage'),
+        //           onClick: configService.exportSessions,
+        //         },
+        //         {
+        //           key: 'globalSetting',
+        //           label: t('exportType.globalSetting'),
+        //           onClick: configService.exportSettings,
+        //         },
+        //         {
+        //           type: 'divider',
+        //         },
+        //         {
+        //           key: 'all',
+        //           label: t('exportType.all'),
+        //           onClick: configService.exportAll,
+        //         },
+        //       ],
+        //       icon: <Icon icon={HardDriveUpload} />,
+        //       key: 'export',
+        //       label: t('export'),
+        //     },
+        // {
+        //   type: 'divider',
+        // },
       ].filter(Boolean) as ItemType[]);
 
   const helps: MenuProps['items'] = [
-    {
-      icon: <Icon icon={DiscordIcon} />,
-      key: 'discord',
-      label: (
-        <Link href={DISCORD} target={'_blank'}>
-          {t('userPanel.discord')}
-        </Link>
-      ),
-    },
-    {
-      children: [
-        {
-          icon: <Icon icon={Book} />,
-          key: 'docs',
-          label: (
-            <Link href={DOCUMENTS} target={'_blank'}>
-              {t('userPanel.docs')}
-            </Link>
-          ),
-        },
-        {
-          icon: <Icon icon={Feather} />,
-          key: 'feedback',
-          label: (
-            <Link href={GITHUB_ISSUES} target={'_blank'}>
-              {t('userPanel.feedback')}
-            </Link>
-          ),
-        },
-        {
-          icon: <Icon icon={Mail} />,
-          key: 'email',
-          label: (
-            <Link href={mailTo(EMAIL_SUPPORT)} target={'_blank'}>
-              {t('userPanel.email')}
-            </Link>
-          ),
-        },
-      ],
-      icon: <Icon icon={LifeBuoy} />,
-      key: 'help',
-      label: t('userPanel.help'),
-    },
+    // {
+    //   icon: <Icon icon={DiscordIcon} />,
+    //   key: 'discord',
+    //   label: (
+    //     <Link href={DISCORD} target={'_blank'}>
+    //       {t('userPanel.discord')}
+    //     </Link>
+    //   ),
+    // },
+    // {
+    //   children: [
+    //     {
+    //       icon: <Icon icon={Book} />,
+    //       key: 'docs',
+    //       label: (
+    //         <Link href={DOCUMENTS} target={'_blank'}>
+    //           {t('userPanel.docs')}
+    //         </Link>
+    //       ),
+    //     },
+    //     {
+    //       icon: <Icon icon={Feather} />,
+    //       key: 'feedback',
+    //       label: (
+    //         <Link href={GITHUB_ISSUES} target={'_blank'}>
+    //           {t('userPanel.feedback')}
+    //         </Link>
+    //       ),
+    //     },
+    //     {
+    //       icon: <Icon icon={Mail} />,
+    //       key: 'email',
+    //       label: (
+    //         <Link href={mailTo(EMAIL_SUPPORT)} target={'_blank'}>
+    //           {t('userPanel.email')}
+    //         </Link>
+    //       ),
+    //     },
+    //   ],
+    //   icon: <Icon icon={LifeBuoy} />,
+    //   key: 'help',
+    //   label: t('userPanel.help'),
+    // },
     {
       type: 'divider',
     },

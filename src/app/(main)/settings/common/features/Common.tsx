@@ -129,28 +129,28 @@ const Common = memo(() => {
           : t('settingSystem.oauth.signin.title'),
         minWidth: undefined,
       },
-      {
-        children: (
-          <Button danger onClick={handleReset} type="primary">
-            {t('danger.reset.action')}
-          </Button>
-        ),
-        desc: t('danger.reset.desc'),
-        label: t('danger.reset.title'),
-        minWidth: undefined,
-      },
-      {
-        children: (
-          <Button danger onClick={handleClear} type="primary">
-            {t('danger.clear.action')}
-          </Button>
-        ),
-        desc: t('danger.clear.desc'),
-        label: t('danger.clear.title'),
-        minWidth: undefined,
-      },
+      // {
+      //   children: (
+      //     <Button danger onClick={handleReset} type="primary">
+      //       {t('danger.reset.action')}
+      //     </Button>
+      //   ),
+      //   desc: t('danger.reset.desc'),
+      //   label: t('danger.reset.title'),
+      //   minWidth: undefined,
+      // },
+      // {
+      //   children: (
+      //     <Button danger onClick={handleClear} type="primary">
+      //       {t('danger.clear.action')}
+      //     </Button>
+      //   ),
+      //   desc: t('danger.clear.desc'),
+      //   label: t('danger.clear.title'),
+      //   minWidth: undefined,
+      // },
     ],
-    title: t('settingSystem.title'),
+    // title: t('settingSystem.title'),
   };
 
   useSyncSettings(form);

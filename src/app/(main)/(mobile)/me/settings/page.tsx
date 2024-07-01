@@ -9,7 +9,7 @@ import Category from './features/Category';
 export const generateMetadata = async () => {
   const { t } = await translation('setting');
   return metadataModule.generate({
-    description: t('header.desc'),
+    // description: t('header.desc'),
     title: t('header.title'),
     url: '/me/settings',
   });
