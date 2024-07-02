@@ -107,6 +107,8 @@ export interface LLMParams {
    * @default 0
    */
   presence_penalty?: number;
+
+  source?: string;
   /**
    * 生成文本的随机度量，用于控制文本的创造性和多样性
    * @default 0.6

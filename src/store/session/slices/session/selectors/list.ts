@@ -1,4 +1,4 @@
-import { DEFAULT_AGENT_LOBE_SESSION, INBOX_SESSION_ID } from '@/const/session';
+import {DATA_SESSION_ID, DEFAULT_AGENT_LOBE_SESSION, INBOX_SESSION_ID, RAG_SESSION_ID} from '@/const/session';
 import { sessionHelpers } from '@/store/session/slices/session/helpers';
 import { MetaData } from '@/types/meta';
 import { CustomSessionGroup, LobeAgentSession, LobeSessions } from '@/types/session';
@@ -38,6 +38,8 @@ const currentSessionSafe = (s: SessionStore): LobeAgentSession => {
 const hasCustomAgents = (s: SessionStore) => defaultSessions(s).length > 0;
 
 const isInboxSession = (s: SessionStore) => s.activeId === INBOX_SESSION_ID;
+const isRAGSession = (s: SessionStore) => s.activeId === RAG_SESSION_ID;
+const isDataSession = (s: SessionStore) => s.activeId === DATA_SESSION_ID;
 
 const isSessionListInit = (s: SessionStore) => s.isSessionsFirstFetchFinished;
 
@@ -52,7 +54,9 @@ export const sessionSelectors = {
   getSessionById,
   getSessionMetaById,
   hasCustomAgents,
+  isDataSession,
   isInboxSession,
+  isRAGSession,
   isSessionListInit,
   isSomeSessionActive,
   pinnedSessions,

@@ -1,14 +1,13 @@
-import { ActionIconGroup } from '@lobehub/ui';
-import { memo } from 'react';
+import {ActionIconGroup} from '@lobehub/ui';
+import {memo} from 'react';
 
-import { useChatListActionsBar } from '../hooks/useChatListActionsBar';
-import { RenderAction } from '../types';
-import { ErrorActionsBar } from './Error';
-import { useCustomActions } from './customAction';
+import {useChatListActionsBar} from '../hooks/useChatListActionsBar';
+import {RenderAction} from '../types';
+import {ErrorActionsBar} from './Error';
 
 export const AssistantActionsBar: RenderAction = memo(({ id, onActionClick, error, tools }) => {
   const { regenerate, edit, delAndRegenerate, copy, divider, del } = useChatListActionsBar();
-  const { translate, tts } = useCustomActions();
+  // const { translate, tts } = useCustomActions();
   const hasTools = !!tools;
 
   if (id === 'default') return;
@@ -21,8 +20,8 @@ export const AssistantActionsBar: RenderAction = memo(({ id, onActionClick, erro
         edit,
         copy,
         divider,
-        tts,
-        translate,
+        // tts,
+        // translate,
         divider,
         regenerate,
         delAndRegenerate,

@@ -22,9 +22,11 @@ const Main = memo(() => {
 
   useInitAgentConfig();
 
-  const [init, isInbox, title, description, avatar, backgroundColor] = useSessionStore((s) => [
+  const [init, isInbox, isRAG, isData, title, description, avatar, backgroundColor] = useSessionStore((s) => [
     sessionSelectors.isSomeSessionActive(s),
     sessionSelectors.isInboxSession(s),
+    sessionSelectors.isRAGSession(s),
+    sessionSelectors.isDataSession(s),
     sessionMetaSelectors.currentAgentTitle(s),
     sessionMetaSelectors.currentAgentDescription(s),
     sessionMetaSelectors.currentAgentAvatar(s),
@@ -33,8 +35,8 @@ const Main = memo(() => {
 
   const openChatSettings = useOpenChatSettings();
 
-  const displayTitle = isInbox ? t('inbox.title') : title;
-  const displayDesc = isInbox ? t('inbox.desc') : description;
+  const displayTitle = isInbox ? t('inbox.title') : isRAG ? t('rag.title') : isData ? t('data.title') : title;
+  const displayDesc = isInbox ? t('inbox.desc') : isRAG ? t('rag.desc') : isData ? t('data.desc') : description;
   const showSessionPanel = useGlobalStore(systemStatusSelectors.showSessionPanel);
   const updateSystemStatus = useGlobalStore((s) => s.updateSystemStatus);
 

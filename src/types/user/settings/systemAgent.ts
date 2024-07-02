@@ -1,6 +1,7 @@
 export interface SystemAgentItem {
   model: string;
   provider: string;
+  source: string;
 }
 
 export interface UserSystemAgentConfig {

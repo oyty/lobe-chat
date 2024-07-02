@@ -62,11 +62,14 @@ const Preview = memo<FieldType & { title?: string }>(
             <ChatList />
             {withFooter ? (
               <Flexbox align={'center'} className={styles.footer} gap={4}>
-                <LobeChat type={'combine'} />
-                <div className={styles.url}>{pkg.homepage}</div>
+                {/*<LobeChat type={'combine'}/>*/}
+                <div style={{fontSize: '26px', color: '#000', fontFamily: 'Nunito', fontWeight: 'bold'}}>
+                  云路助手
+                </div>
+                {/*<div className={styles.url}>{pkg.homepage}</div>*/}
               </Flexbox>
             ) : (
-              <div />
+              <div/>
             )}
           </Flexbox>
         </div>

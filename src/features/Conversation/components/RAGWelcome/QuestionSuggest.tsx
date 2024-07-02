@@ -77,12 +77,12 @@ const QuestionSuggest = memo<{ mobile?: boolean }>(({ mobile }) => {
         // const result = await res.json();
         const result = {
           data: [
-            "这是随便聊聊问题1？",
-            "这是随便聊聊问题2？",
-            "这是随便聊聊问题3？",
-            "这是随便聊聊问题4？",
-            "这是随便聊聊问题5？",
-            "这是随便聊聊问题6？"
+            "这是文件检索问题1？",
+            "这是文件检索问题2？",
+            "这是文件检索问题3？",
+            "这是文件检索问题4？",
+            "这是文件检索问题5？",
+            "这是文件检索问题6？"
           ]
         }
         setQaList(result.data)

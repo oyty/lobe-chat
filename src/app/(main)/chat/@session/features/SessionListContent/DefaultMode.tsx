@@ -14,6 +14,8 @@ import { SessionDefaultGroup } from '@/types/session';
 import Actions from '../SessionListContent/CollapseGroup/Actions';
 import CollapseGroup from './CollapseGroup';
 import Inbox from './Inbox';
+import Data from './Data';
+import RAG from './RAG';
 import SessionList from './List';
 import ConfigGroupModal from './Modals/ConfigGroupModal';
 import RenameGroupModal from './Modals/RenameGroupModal';
@@ -78,6 +80,8 @@ const DefaultMode = memo(() => {
   return (
     <>
       <Inbox />
+      <RAG />
+      <Data />
       <CollapseGroup
         activeKey={sessionGroupKeys}
         items={items}

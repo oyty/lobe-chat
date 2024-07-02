@@ -11,6 +11,10 @@ export default {
   confirmClearCurrentMessages: '即将清空当前会话消息，清空后将无法找回，请确认你的操作',
   confirmRemoveSessionItemAlert: '即将删除该助手，删除后该将无法找回，请确认你的操作',
   confirmRemoveSessionSuccess: '助手删除成功',
+  data: {
+    desc: '实现与本地数据库的智能交互，让数据处理更加便捷高效',
+    title: '云路数据交互',
+  },
   defaultAgent: '自定义助手',
   defaultList: '默认列表',
   defaultSession: '自定义助手',
@@ -43,6 +47,10 @@ export default {
   newAgent: '新建助手',
   pin: '置顶',
   pinOff: '取消置顶',
+  rag: {
+    desc: '高效、精准地检索和管理你的文件，让信息触手可及',
+    title: '云路文件检索',
+  },
   regenerate: '重新生成',
   roleAndArchive: '角色与记录',
   searchAgentPlaceholder: '搜索助手和对话...',
@@ -117,6 +125,7 @@ export default {
     searchPlaceholder: '搜索话题...',
     title: '话题',
   },
+
   translate: {
     action: '翻译',
     clear: '删除翻译',
@@ -125,6 +134,7 @@ export default {
     action: '语音朗读',
     clear: '删除语音',
   },
+
   updateAgent: '更新助理信息',
   upload: {
     actionFiletip: '上传文件',
@@ -135,4 +145,5 @@ export default {
     dragFileTitle: '上传文件',
     dragTitle: '上传图片',
   },
+
 };

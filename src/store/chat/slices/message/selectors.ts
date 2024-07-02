@@ -1,7 +1,7 @@
 import { t } from 'i18next';
 
 import { DEFAULT_INBOX_AVATAR, DEFAULT_USER_AVATAR } from '@/const/meta';
-import { INBOX_SESSION_ID } from '@/const/session';
+import {DATA_SESSION_ID, INBOX_SESSION_ID, RAG_SESSION_ID} from '@/const/session';
 import { useAgentStore } from '@/store/agent';
 import { agentSelectors } from '@/store/agent/selectors';
 import { messageMapKey } from '@/store/chat/slices/message/utils';
@@ -50,6 +50,24 @@ const initTime = Date.now();
 const showInboxWelcome = (s: ChatStore): boolean => {
   const isInbox = s.activeId === INBOX_SESSION_ID;
   if (!isInbox) return false;
+
+  const data = currentChats(s);
+  const isBrandNewChat = data.length === 0;
+
+  return isBrandNewChat;
+};
+const showRAGWelcome = (s: ChatStore): boolean => {
+  const isRag = s.activeId === RAG_SESSION_ID;
+  if (!isRag) return false;
+
+  const data = currentChats(s);
+  const isBrandNewChat = data.length === 0;
+
+  return isBrandNewChat;
+};
+const showDataWelcome = (s: ChatStore): boolean => {
+  const isData = s.activeId === DATA_SESSION_ID;
+  if (!isData) return false;
 
   const data = currentChats(s);
   const isBrandNewChat = data.length === 0;
@@ -160,5 +178,7 @@ export const chatSelectors = {
   isPluginApiInvoking,
   isToolCallStreaming,
   latestMessage,
+  showDataWelcome,
   showInboxWelcome,
+  showRAGWelcome
 };

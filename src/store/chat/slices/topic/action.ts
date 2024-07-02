@@ -146,7 +146,9 @@ export const chatTopic: StateCreator<
 
     // Get current agent for topic
     const topicConfig = systemAgentSelectors.topic(useUserStore.getState());
-
+    // console.log(messages)
+    // console.log(chainSummaryTitle(messages))
+    // console.log(merge(topicConfig, chainSummaryTitle(messages)))
     // Automatically summarize the topic title
     await chatService.fetchPresetTaskResult({
       onError: () => {

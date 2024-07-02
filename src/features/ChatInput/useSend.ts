@@ -4,6 +4,8 @@ import { useChatStore } from '@/store/chat';
 import { chatSelectors } from '@/store/chat/selectors';
 import { SendMessageParams } from '@/store/chat/slices/message/action';
 import { filesSelectors, useFileStore } from '@/store/file';
+import {useAgentStore} from "@/store/agent";
+import {agentSelectors} from "@/store/agent/slices/chat";
 
 export type UseSendMessageParams = Pick<
   SendMessageParams,
@@ -16,9 +18,29 @@ export const useSendMessage = () => {
     s.updateInputMessage,
   ]);
 
+  const [source, updateAgentConfig] = useAgentStore((s) => {
+    const config = agentSelectors.currentAgentConfig(s);
+    return [config.params?.source, s.updateAgentConfig];
+  });
+
   return useCallback((params: UseSendMessageParams = {}) => {
     const store = useChatStore.getState();
     if (chatSelectors.isAIGenerating(store)) return;
+
+    if (chatSelectors.showInboxWelcome(store)) {
+      console.log('showInboxWelcome');
+      updateAgentConfig({ params: { source: 'inbox' } })
+    }
+    if (chatSelectors.showRAGWelcome(store)) {
+      console.log('showRAGWelcome');
+      updateAgentConfig({ params: { source: 'rag' } })
+    }
+    if (chatSelectors.showDataWelcome(store)) {
+      console.log('showDataWelcome');
+      updateAgentConfig({ params: { source: 'data' } })
+    }
+
+
 
     const imageList = filesSelectors.imageUrlOrBase64List(useFileStore.getState());
     // if there is no message and no image, then we should not send the message

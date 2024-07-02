@@ -8,7 +8,7 @@ import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { Center, Flexbox } from 'react-layout-kit';
 import { Virtuoso, VirtuosoHandle } from 'react-virtuoso';
 
-import { WELCOME_GUIDE_CHAT_ID } from '@/const/session';
+import {WELCOME_GUIDE_CHAT_ID, WELCOME_GUIDE_CHAT_ID_DATA, WELCOME_GUIDE_CHAT_ID_RAG} from '@/const/session';
 import { isServerMode } from '@/const/version';
 import { useChatStore } from '@/store/chat';
 import { chatSelectors } from '@/store/chat/selectors';
@@ -17,6 +17,8 @@ import { useSessionStore } from '@/store/session';
 import AutoScroll from '../AutoScroll';
 import Item from '../ChatItem';
 import InboxWelcome from '../InboxWelcome';
+import RAGWelcome from '../RAGWelcome';
+import DataWelcome from '../DataWelcome';
 import SkeletonList from '../SkeletonList';
 
 interface VirtualizedListProps {
@@ -43,9 +45,19 @@ const VirtualizedList = memo<VirtualizedListProps>(({ mobile }) => {
 
   const data = useChatStore((s) => {
     const showInboxWelcome = chatSelectors.showInboxWelcome(s);
-    const ids = showInboxWelcome
-      ? [WELCOME_GUIDE_CHAT_ID]
-      : chatSelectors.currentChatIDsWithGuideMessage(s);
+    const showRAGWelcome = chatSelectors.showRAGWelcome(s);
+    const showDataWelcome = chatSelectors.showDataWelcome(s);
+    if (showInboxWelcome) {
+      const ids = [WELCOME_GUIDE_CHAT_ID]
+      return ['empty', ...ids];
+    } else if (showRAGWelcome) {
+      const ids = [WELCOME_GUIDE_CHAT_ID_RAG]
+      return ['empty', ...ids];
+    } else if (showDataWelcome) {
+      const ids = [WELCOME_GUIDE_CHAT_ID_DATA]
+      return ['empty', ...ids];
+    }
+    const ids = chatSelectors.currentChatIDsWithGuideMessage(s);
     return ['empty', ...ids];
   }, isEqual);
 
@@ -70,6 +82,8 @@ const VirtualizedList = memo<VirtualizedListProps>(({ mobile }) => {
   const itemContent = useCallback(
     (index: number, id: string) => {
       if (id === WELCOME_GUIDE_CHAT_ID) return <InboxWelcome />;
+      if (id === WELCOME_GUIDE_CHAT_ID_RAG) return <RAGWelcome />;
+      if (id === WELCOME_GUIDE_CHAT_ID_DATA) return <DataWelcome />;
 
       return index === 0 ? (
         <div style={{ height: 24 + (mobile ? 0 : 64) }} />
