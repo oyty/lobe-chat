@@ -2,16 +2,16 @@
 
 import { ActionIcon } from '@lobehub/ui';
 import { createStyles } from 'antd-style';
-import { shuffle } from 'lodash-es';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
 import { USAGE_DOCUMENTS } from '@/const/url';
 import { useSendMessage } from '@/features/ChatInput/useSend';
 import { useChatStore } from '@/store/chat';
+import { apiRandomHintList } from '@/api';
 
 const useStyles = createStyles(({ css, token, responsive }) => ({
   card: css`
@@ -40,23 +40,23 @@ const useStyles = createStyles(({ css, token, responsive }) => ({
   `,
 }));
 
-const qa = shuffle([
-  'q01',
-  'q02',
-  'q03',
-  'q04',
-  'q05',
-  'q06',
-  'q07',
-  'q08',
-  'q09',
-  'q10',
-  'q11',
-  'q12',
-  'q13',
-  'q14',
-  'q15',
-]);
+// const qa = shuffle([
+//   'q01',
+//   'q02',
+//   'q03',
+//   'q04',
+//   'q05',
+//   'q06',
+//   'q07',
+//   'q08',
+//   'q09',
+//   'q10',
+//   'q11',
+//   'q12',
+//   'q13',
+//   'q14',
+//   'q15',
+// ]);
 
 const QuestionSuggest = memo<{ mobile?: boolean }>(({ mobile }) => {
   const [updateInputMessage] = useChatStore((s) => [s.updateInputMessage]);
@@ -64,6 +64,35 @@ const QuestionSuggest = memo<{ mobile?: boolean }>(({ mobile }) => {
   const { t } = useTranslation('welcome');
   const { styles } = useStyles();
   const sendMessage = useSendMessage();
+
+  const [qaList, setQaList] = useState<string[]>([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(apiRandomHintList);
+        if (!res.ok) {
+          return false
+        }
+        const result = await res.json();
+        // const result = {
+        //   data: [
+        //     "这是随便聊聊问题1？",
+        //     "这是随便聊聊问题2？",
+        //     "这是随便聊聊问题3？",
+        //     "这是随便聊聊问题4？",
+        //     "这是随便聊聊问题5？",
+        //     "这是随便聊聊问题6？"
+        //   ]
+        // }
+        setQaList(result.data)
+      } catch (error) {
+        console.log(error)
+      }
+    };
+
+    fetchData();
+  }, [])
 
   return (
     <Flexbox gap={8} width={'100%'}>
@@ -78,8 +107,8 @@ const QuestionSuggest = memo<{ mobile?: boolean }>(({ mobile }) => {
         </Link>
       </Flexbox>
       <Flexbox gap={8} horizontal wrap={'wrap'}>
-        {qa.slice(0, mobile ? 2 : 5).map((item) => {
-          const text = t(`guide.qa.${item}` as any);
+        {qaList.slice(0, mobile ? 2 : 5).map((item) => {
+          const text = item;
           return (
             <Flexbox
               align={'center'}
@@ -92,7 +121,7 @@ const QuestionSuggest = memo<{ mobile?: boolean }>(({ mobile }) => {
                 sendMessage({ isWelcomeQuestion: true });
               }}
             >
-              {t(text)}
+              {text}
             </Flexbox>
           );
         })}
