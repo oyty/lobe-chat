@@ -50,6 +50,7 @@ const nextConfig = {
       layers: true,
     };
 
+
     // to fix shikiji compile error
     // refs: https://github.com/antfu/shikiji/issues/23
     config.module.rules.push({
