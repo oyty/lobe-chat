@@ -1,54 +1,49 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { Document, Page, pdfjs  } from 'react-pdf';
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`
+import React, { useEffect, useState, useRef } from 'react';
 
 
 const PDFViewerPage: React.FC = () => {
     const [url, setUrl] = useState<string | null>(null);
-    const [pageNumber, setPageNumber] = useState<number>(1);
-    const [total, setTotal] = useState<number>(1);
+    let pageNumber = 1;
+    const iframeRef = useRef<HTMLIFrameElement>(null);
     useEffect(() => {
         const searchParams = new URLSearchParams(window.location.search);
         const newUrl = searchParams.get('url');
         setUrl(newUrl??'');
-        const pageCountString = newUrl?newUrl.slice(newUrl.indexOf('?') + 1):'';
-        const params = pageCountString.split('&');
+        const pageCountString = newUrl?newUrl.slice(newUrl.indexOf('.pdf') + 4):'';
+        const params = pageCountString.split(/#|&/);
         // 遍历键值对数组，找到 page 参数
         for (let param of params) {
             const [key, value] = param.split('=');
             if (key === 'page') {
-                setPageNumber(+value)
-            }else if(key === 'total'){
-                setTotal(+value)
+                pageNumber = +value;
             }
         }
     }, []);
-    const handleChangePage = (type: 'prev' | 'next') => {
-        if(type === 'prev' && pageNumber > 1) {
-            setPageNumber(pageNumber - 1);
-        }else if(type === 'next' && pageNumber < total){
-            setPageNumber(pageNumber + 1);
-        }
-    }
+    
+    //监听iframeRef
+    useEffect(() => {
+        const checkIframe = () => {
+            if (iframeRef.current) {
+                const iframe = iframeRef.current;
+                if(iframe?.contentWindow?.PDFViewerApplication?.eventBus){
+                    iframe.contentWindow.PDFViewerApplication.eventBus.dispatch('pagenumberchanged',{ value: pageNumber})
+                }
+            }
+        };
+
+        // 延迟检查 iframeRef.current
+        const timeoutId = setTimeout(checkIframe, 300);
+
+        return () => clearTimeout(timeoutId);
+    }, [iframeRef]);
+    
   return (
-    <div style={{ margin: '0 auto' }}>
+    <div style={{ width: '100%' }}>
       {
         url ?
-        (   
-            <>
-                <Document file={url}>
-                    <Page pageNumber={pageNumber} />
-                </Document>
-                <div style={{display: 'flex',justifyContent: 'center',alignItems: 'center', marginTop: '20px'}}>
-                    <button onClick={ () => handleChangePage('prev') }>上一页</button>
-                    <span style={{margin: '0 10px'}}>{pageNumber} / {total}</span>
-                    <button onClick={ ()=> handleChangePage('next') }>下一页</button>
-                </div>
-            </>
-        )
+        <iframe ref={iframeRef} src={'/pdfjs/web/viewer.html?file=' + encodeURIComponent(url)} width="100%" height="100%"></iframe>
         : ''
       }
     </div>
