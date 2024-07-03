@@ -132,11 +132,11 @@ const OpenAI: ModelProviderCard = {
     //   vision: true,
     // },
   ],
-  checkModel: 'gpt-3.5-turbo',
+  checkModel: 'TUKA',
   enabled: true,
   id: 'openai',
   modelList: { showModelFetcher: true },
-  name: 'OpenAI',
+  name: 'TONGLUCLOUD',
 };
 
 export default OpenAI;

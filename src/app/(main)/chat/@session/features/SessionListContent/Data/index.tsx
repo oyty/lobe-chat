@@ -30,6 +30,7 @@ const Data = memo(() => {
         active={activeId === DATA_SESSION_ID}
         avatar={DEFAULT_DATA_AVATAR}
         title={t('data.title')}
+        description={t('data.desc')}
       />
     </Link>
   );

@@ -14,7 +14,7 @@ const Page = () => {
       {list.map(({ id, ...res }) => (
         <ProviderConfig id={id as any} key={id} {...res} />
       ))}
-      <Footer />
+      {/*<Footer />*/}
     </Flexbox>
   );
 };

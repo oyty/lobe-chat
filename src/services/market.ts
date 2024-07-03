@@ -4,8 +4,8 @@ import { API_ENDPOINTS } from './_url';
 
 class MarketService {
   getAgentList = async (locale: string): Promise<LobeChatAgentsMarketIndex> => {
-    const res = await fetch(`https://ultron-cloud.oss-cn-shanghai.aliyuncs.com/common/index.json`);
-    // const res = await fetch(`${API_ENDPOINTS.market}?locale=${locale}`);
+    // const res = await fetch(`https://ultron-cloud.oss-cn-shanghai.aliyuncs.com/common/index.json`);
+    const res = await fetch(`${API_ENDPOINTS.market}?locale=${locale}`);
 
     return res.json();
   };
