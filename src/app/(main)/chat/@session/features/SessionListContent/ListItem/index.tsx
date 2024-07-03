@@ -1,13 +1,13 @@
-import { Avatar, List, ListItemProps } from '@lobehub/ui';
-import { useHover } from 'ahooks';
-import { createStyles } from 'antd-style';
-import { memo, useMemo, useRef } from 'react';
+import {Avatar, List, ListItemProps} from '@lobehub/ui';
+import {useHover} from 'ahooks';
+import {createStyles} from 'antd-style';
+import {memo, useMemo, useRef} from 'react';
 
-import { useServerConfigStore } from '@/store/serverConfig';
+import {useServerConfigStore} from '@/store/serverConfig';
 
-const { Item } = List;
+const {Item} = List;
 
-const useStyles = createStyles(({ css, token }) => {
+const useStyles = createStyles(({css, token}) => {
   return {
     container: css`
       position: relative;
@@ -30,12 +30,12 @@ const useStyles = createStyles(({ css, token }) => {
 });
 
 const ListItem = memo<ListItemProps & { avatar: string; avatarBackground?: string }>(
-  // ({ avatar, avatarBackground, active, showAction, actions, title, ...props }) => {
-  ({ avatar, avatarBackground, title, ...props }) => {
+  ({avatar, avatarBackground, active, showAction, actions, title, ...props}) => {
+    // ({ avatar, avatarBackground, title, ...props }) => {
     const ref = useRef(null);
     const isHovering = useHover(ref);
     const mobile = useServerConfigStore((s) => s.isMobile);
-    const { cx, styles } = useStyles();
+    const {cx, styles} = useStyles();
 
     const avatarRender = useMemo(
       () => (
@@ -50,31 +50,31 @@ const ListItem = memo<ListItemProps & { avatar: string; avatarBackground?: strin
       [isHovering, avatar, avatarBackground],
     );
 
-    return (
-      <Item
-        actions={[]}
-        active={false}
-        avatar={avatarRender}
-        className={cx(styles.container, mobile && styles.mobile)}
-        ref={ref}
-        showAction={false}
-        title={<span className={styles.title}>{title}</span>}
-        {...(props as any)}
-      />
-    );
-
     // return (
     //   <Item
-    //     actions={actions}
-    //     active={mobile ? false : active}
+    //     actions={[]}
+    //     active={false}
     //     avatar={avatarRender}
     //     className={cx(styles.container, mobile && styles.mobile)}
     //     ref={ref}
-    //     showAction={actions && (isHovering || showAction || mobile)}
+    //     showAction={false}
     //     title={<span className={styles.title}>{title}</span>}
     //     {...(props as any)}
     //   />
     // );
+
+    return (
+      <Item
+        actions={actions}
+        active={mobile ? false : active}
+        avatar={avatarRender}
+        className={cx(styles.container, mobile && styles.mobile)}
+        ref={ref}
+        showAction={actions && (isHovering || showAction || mobile)}
+        title={<span className={styles.title}>{title}</span>}
+        {...(props as any)}
+      />
+    );
   },
 );
 

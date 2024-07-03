@@ -78,6 +78,7 @@ const AgentsSuggest = memo<{ mobile?: boolean }>(({mobile}) => {
     setSliceStart(Math.floor((Math.random() * agentList.length) / 2));
   };
 
+
   const switchSession = useSwitchSession();
 
   const [customAgentList, setCustomAgentList] = useState<any[]>([])
@@ -108,7 +109,6 @@ const AgentsSuggest = memo<{ mobile?: boolean }>(({mobile}) => {
                 "title": "中英文互译助手"
               },
               "schemaVersion": 1,
-              "session_id": "56d763e8-d4af-420c-aab2-ce15f55dcf0e"
             },
             {
               "author": "aihoom",
@@ -126,7 +126,6 @@ const AgentsSuggest = memo<{ mobile?: boolean }>(({mobile}) => {
                 "title": "科研文章翻译助手"
               },
               "schemaVersion": 1,
-              "session_id": "bae4ad76-b64b-4fce-8d7d-0bdbee1dbddb"
             },
             {
               "author": "muxinxy",
@@ -146,7 +145,6 @@ const AgentsSuggest = memo<{ mobile?: boolean }>(({mobile}) => {
                 "title": "文本总结助手"
               },
               "schemaVersion": 1,
-              "session_id": "c16dd7dc-0103-4112-8ef6-ff70ad531291"
             },
             {
               "author": "S45618",
@@ -167,7 +165,6 @@ const AgentsSuggest = memo<{ mobile?: boolean }>(({mobile}) => {
                 "title": "中文润色大师"
               },
               "schemaVersion": 1,
-              "session_id": "0ec45867-4418-4331-8b6c-07761c087ec7"
             }
           ] as any[]
         }

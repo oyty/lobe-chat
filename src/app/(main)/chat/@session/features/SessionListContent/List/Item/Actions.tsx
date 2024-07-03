@@ -123,29 +123,29 @@ const Actions = memo<ActionProps>(({ group, id, openCreateGroupModal, setOpen })
           {
             type: 'divider',
           },
-          isServerMode
-            ? undefined
-            : {
-                children: [
-                  {
-                    key: 'agent',
-                    label: t('exportType.agent', { ns: 'common' }),
-                    onClick: () => {
-                      configService.exportSingleAgent(id);
-                    },
-                  },
-                  {
-                    key: 'agentWithMessage',
-                    label: t('exportType.agentWithMessage', { ns: 'common' }),
-                    onClick: () => {
-                      configService.exportSingleSession(id);
-                    },
-                  },
-                ],
-                icon: <Icon icon={HardDriveDownload} />,
-                key: 'export',
-                label: t('export', { ns: 'common' }),
-              },
+          // isServerMode
+          //   ? undefined
+          //   : {
+          //       children: [
+          //         {
+          //           key: 'agent',
+          //           label: t('exportType.agent', { ns: 'common' }),
+          //           onClick: () => {
+          //             configService.exportSingleAgent(id);
+          //           },
+          //         },
+          //         {
+          //           key: 'agentWithMessage',
+          //           label: t('exportType.agentWithMessage', { ns: 'common' }),
+          //           onClick: () => {
+          //             configService.exportSingleSession(id);
+          //           },
+          //         },
+          //       ],
+          //       icon: <Icon icon={HardDriveDownload} />,
+          //       key: 'export',
+          //       label: t('export', { ns: 'common' }),
+          //     },
           {
             danger: true,
             icon: <Icon icon={Trash} />,
