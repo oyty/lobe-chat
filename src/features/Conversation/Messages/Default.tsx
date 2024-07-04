@@ -1,4 +1,4 @@
-import { ReactNode, memo } from 'react';
+import React, { ReactNode, memo, ReactElement } from 'react';
 
 import { LOADING_FLAT } from '@/const/message';
 import { ChatMessage } from '@/types/message';
@@ -36,7 +36,7 @@ export const DefaultMessage = memo<
     //新打开一个空白的页面，展示pdf文件
     window.open(`/pdf?url=${encodeURIComponent(href)}`, '_blank');
   }
-  return  hasPDF(editableContent?.props?.value??'') ? <div onClick={handleLinkClick}>{editableContent}</div> : <div id={id}>{editableContent}</div>;
+  return  React.isValidElement(editableContent) && hasPDF((editableContent as ReactElement).props?.value??'') ? <div onClick={handleLinkClick}>{editableContent}</div> : <div id={id}>{editableContent}</div>;
 });
 
 

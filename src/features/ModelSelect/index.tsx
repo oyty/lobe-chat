@@ -56,7 +56,7 @@ const ModelSelect = memo<ModelSelectProps>(({ value, onChange, showAbility = tru
   return (
     <Select
       onChange={(model, option) => {
-        onChange?.({ model, provider: (option as unknown as ModelOption).provider });
+        onChange&&onChange.({ model, provider: (option as unknown as ModelOption).provider });
       }}
       options={options}
       popupClassName={styles.select}
