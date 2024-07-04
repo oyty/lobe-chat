@@ -1,14 +1,12 @@
-import { Icon } from '@lobehub/ui';
-import { Tag } from 'antd';
-import { Bot, Brain, Cloudy, Info, Mic2, Settings2, Sparkles } from 'lucide-react';
+import {Icon} from '@lobehub/ui';
+import {Brain, Settings2} from 'lucide-react';
 import Link from 'next/link';
-import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Flexbox } from 'react-layout-kit';
+import {useMemo} from 'react';
+import {useTranslation} from 'react-i18next';
 
-import type { MenuProps } from '@/components/Menu';
-import { SettingsTabs } from '@/store/global/initialState';
-import { featureFlagsSelectors, useServerConfigStore } from '@/store/serverConfig';
+import type {MenuProps} from '@/components/Menu';
+import {SettingsTabs} from '@/store/global/initialState';
+import {featureFlagsSelectors, useServerConfigStore} from '@/store/serverConfig';
 
 export const useCategory = () => {
   const { t } = useTranslation('setting');

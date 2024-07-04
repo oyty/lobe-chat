@@ -56,9 +56,7 @@ const DataWelcome = memo(() => {
           {t('guide.defaultMessage')}
         </Markdown>
         {
-          showWelcomeSuggest && <>
-            <QuestionSuggest mobile={mobile} />
-          </>
+          showWelcomeSuggest && <QuestionSuggest mobile={mobile} />
         }
       </Flexbox>
     </Center>

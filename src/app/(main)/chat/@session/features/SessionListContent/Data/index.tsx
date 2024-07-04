@@ -29,8 +29,8 @@ const Data = memo(() => {
       <ListItem
         active={activeId === DATA_SESSION_ID}
         avatar={DEFAULT_DATA_AVATAR}
-        title={t('data.title')}
         description={t('data.desc')}
+        title={t('data.title')}
       />
     </Link>
   );

@@ -1,80 +1,42 @@
-import {
-  Anthropic,
-  Claude,
-  DeepSeek,
-  Gemini,
-  Google,
-  Groq,
-  Minimax,
-  Mistral,
-  Moonshot,
-  OpenRouter,
-  Perplexity,
-  Stepfun,
-  Together,
-  Tongyi,
-  ZeroOne,
-  Zhipu,
-} from '@lobehub/icons';
-import { Divider } from 'antd';
-import { useTheme } from 'antd-style';
-import { useMemo } from 'react';
-import { Flexbox } from 'react-layout-kit';
+import {useMemo} from 'react';
 import urlJoin from 'url-join';
 
-import {
-  AnthropicProviderCard,
-  DeepSeekProviderCard,
-  GoogleProviderCard,
-  GroqProviderCard,
-  MinimaxProviderCard,
-  MistralProviderCard,
-  MoonshotProviderCard,
-  OpenRouterProviderCard,
-  PerplexityProviderCard,
-  QwenProviderCard,
-  StepfunProviderCard,
-  TogetherAIProviderCard,
-  ZeroOneProviderCard,
-  ZhiPuProviderCard,
-} from '@/config/modelProviders';
-
-import { ProviderItem } from '../type';
-import { useAzureProvider } from './Azure';
-import { useBedrockProvider } from './Bedrock';
-import { useOllamaProvider } from './Ollama';
-import { useOpenAIProvider } from './OpenAI';
+import {ProviderItem} from '../type';
+import {useAzureProvider} from './Azure';
+import {useBedrockProvider} from './Bedrock';
+import {useOllamaProvider} from './Ollama';
+import {useOpenAIProvider} from './OpenAI';
 
 const BASE_DOC_URL = 'https://lobehub.com/docs/usage/providers';
 
-const AnthropicBrand = () => {
-  const { isDarkMode } = useTheme();
-  return <Anthropic.Text color={isDarkMode ? undefined : Claude.colorPrimary} size={15} />;
-};
-
-const MoonshotBrand = () => {
-  const theme = useTheme();
-  return (
-    <Moonshot.Combine
-      color={theme.isDarkMode ? theme.colorText : Moonshot.colorPrimary}
-      size={22}
-    />
-  );
-};
-
-const GroqBrand = () => {
-  const theme = useTheme();
-
-  return <Groq.Text color={theme.isDarkMode ? theme.colorText : Groq.colorPrimary} size={20} />;
-};
-
-const GoogleBrand = () => (
-  <Flexbox align={'center'} gap={8} horizontal>
-    <Google.BrandColor size={22} />
-    <Divider style={{ margin: '0 4px' }} type={'vertical'} />
-    <Gemini.Combine size={22} type={'color'} />
-  </Flexbox>
-);
+// const AnthropicBrand = () => {
+//   const { isDarkMode } = useTheme();
+//   return <Anthropic.Text color={isDarkMode ? undefined : Claude.colorPrimary} size={15} />;
+// };
+//
+// const MoonshotBrand = () => {
+//   const theme = useTheme();
+//   return (
+//     <Moonshot.Combine
+//       color={theme.isDarkMode ? theme.colorText : Moonshot.colorPrimary}
+//       size={22}
+//     />
+//   );
+// };
+//
+// const GroqBrand = () => {
+//   const theme = useTheme();
+//
+//   return <Groq.Text color={theme.isDarkMode ? theme.colorText : Groq.colorPrimary} size={20} />;
+// };
+//
+// const GoogleBrand = () => (
+//   <Flexbox align={'center'} gap={8} horizontal>
+//     <Google.BrandColor size={22} />
+//     <Divider style={{ margin: '0 4px' }} type={'vertical'} />
+//     <Gemini.Combine size={22} type={'color'} />
+//   </Flexbox>
+// );
 
 export const useProviderList = (): ProviderItem[] => {
   const azureProvider = useAzureProvider();

@@ -1,28 +1,15 @@
-import { ActionIcon, Icon } from '@lobehub/ui';
-import { App, Dropdown } from 'antd';
-import { createStyles } from 'antd-style';
-import { ItemType } from 'antd/es/menu/interface';
+import {ActionIcon, Icon} from '@lobehub/ui';
+import {App, Dropdown} from 'antd';
+import {createStyles} from 'antd-style';
+import {ItemType} from 'antd/es/menu/interface';
 import isEqual from 'fast-deep-equal';
-import {
-  Check,
-  HardDriveDownload,
-  ListTree,
-  LucideCopy,
-  LucidePlus,
-  MoreVertical,
-  Pin,
-  PinOff,
-  Trash,
-} from 'lucide-react';
-import { memo, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
-
-import { isServerMode } from '@/const/version';
-import { configService } from '@/services/config';
-import { useSessionStore } from '@/store/session';
-import { sessionHelpers } from '@/store/session/helpers';
-import { sessionGroupSelectors, sessionSelectors } from '@/store/session/selectors';
-import { SessionDefaultGroup } from '@/types/session';
+import {Check, ListTree, LucideCopy, LucidePlus, MoreVertical, Pin, PinOff, Trash,} from 'lucide-react';
+import {memo, useMemo} from 'react';
+import {useTranslation} from 'react-i18next';
+import {useSessionStore} from '@/store/session';
+import {sessionHelpers} from '@/store/session/helpers';
+import {sessionGroupSelectors, sessionSelectors} from '@/store/session/selectors';
+import {SessionDefaultGroup} from '@/types/session';
 
 const useStyles = createStyles(({ css }) => ({
   modalRoot: css`

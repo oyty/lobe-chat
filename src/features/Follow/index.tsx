@@ -1,34 +1,27 @@
 'use client';
 
-import { SiDiscord, SiGithub, SiMedium, SiX } from '@icons-pack/react-simple-icons';
-import { ActionIcon } from '@lobehub/ui';
-import { createStyles } from 'antd-style';
-import Link from 'next/link';
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Flexbox } from 'react-layout-kit';
-
-import { DISCORD, GITHUB, MEDIDUM, X } from '@/const/url';
-
-const useStyles = createStyles(({ css, token }) => {
-  return {
-    icon: css`
-      svg {
-        fill: ${token.colorTextDescription};
-      }
-
-      &:hover {
-        svg {
-          fill: ${token.colorText};
-        }
-      }
-    `,
-  };
-});
+import {memo} from 'react';
+import {Flexbox} from 'react-layout-kit';
+//
+// const useStyles = createStyles(({ css, token }) => {
+//   return {
+//     icon: css`
+//       svg {
+//         fill: ${token.colorTextDescription};
+//       }
+//
+//       &:hover {
+//         svg {
+//           fill: ${token.colorText};
+//         }
+//       }
+//     `,
+//   };
+// });
 
 const Follow = memo(() => {
-  const { styles } = useStyles();
-  const { t } = useTranslation('common');
+  // const { styles } = useStyles();
+  // const { t } = useTranslation('common');
   return (
     <Flexbox gap={8} horizontal>
       {/*<Link href={GITHUB} rel="noreferrer" target={'_blank'}>*/}

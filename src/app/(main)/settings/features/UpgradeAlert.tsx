@@ -1,20 +1,14 @@
 'use client';
 
-import { Alert } from '@lobehub/ui';
-import { Button } from 'antd';
-import Link from 'next/link';
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Flexbox } from 'react-layout-kit';
-
-import { MANUAL_UPGRADE_URL } from '@/const/url';
-import { useGlobalStore } from '@/store/global';
+import {Alert} from '@lobehub/ui';
+import {memo} from 'react';
+import {Flexbox} from 'react-layout-kit';
 
 const UpgradeAlert = memo(() => {
-  const [hasNewVersion, latestVersion] = useGlobalStore((s) => [s.hasNewVersion, s.latestVersion]);
-  const { t } = useTranslation('common');
+  // const [hasNewVersion, latestVersion] = useGlobalStore((s) => [s.hasNewVersion, s.latestVersion]);
+  // const { t } = useTranslation('common');
 
-  if (!hasNewVersion) return;
+  // if (!hasNewVersion) return;
 
   return (
     <Alert

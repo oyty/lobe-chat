@@ -1,7 +1,6 @@
-import { GridShowcase } from '@lobehub/ui';
-import { LobeHub } from '@lobehub/ui/brand';
-import { PropsWithChildren } from 'react';
-import { Flexbox } from 'react-layout-kit';
+import {GridShowcase} from '@lobehub/ui';
+import {PropsWithChildren} from 'react';
+import {Flexbox} from 'react-layout-kit';
 
 import Follow from '@/features/Follow';
 
@@ -19,7 +18,7 @@ const DesktopLayout = ({ children }: PropsWithChildren) => {
         width={'100%'}
       >
         {/*<LobeHub size={36} style={{alignSelf: 'flex-start'}} type={'text'}/>*/}
-        <div style={{alignSelf: 'flex-start',fontSize: '26px', color: '#000', fontFamily: 'Nunito', fontWeight: 'bold'}}>
+        <div style={{alignSelf: 'flex-start',color: '#000', fontFamily: 'Nunito', fontSize: '26px', fontWeight: 'bold'}}>
           云路助手
         </div>
 

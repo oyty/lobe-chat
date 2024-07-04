@@ -1,10 +1,9 @@
 'use client';
 
-import { Flexbox } from 'react-layout-kit';
+import {Flexbox} from 'react-layout-kit';
 
-import { useProviderList } from './ProviderList/providers';
+import {useProviderList} from './ProviderList/providers';
 import ProviderConfig from './components/ProviderConfig';
-import Footer from './features/Footer';
 
 const Page = () => {
   const list = useProviderList();

@@ -29,8 +29,8 @@ const RAG = memo(() => {
       <ListItem
         active={activeId === RAG_SESSION_ID}
         avatar={DEFAULT_RAG_AVATAR}
-        title={t('rag.title')}
         description={t('rag.desc')}
+        title={t('rag.title')}
       />
     </Link>
   );

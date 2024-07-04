@@ -1,38 +1,20 @@
-import { ActionIcon, DiscordIcon, Icon } from '@lobehub/ui';
-import { Badge } from 'antd';
-import { ItemType } from 'antd/es/menu/interface';
-import {
-  Book,
-  CircleUserRound,
-  Download,
-  Feather,
-  HardDriveDownload,
-  HardDriveUpload,
-  LifeBuoy,
-  LogOut,
-  Mail,
-  Maximize,
-  Settings2,
-} from 'lucide-react';
-import Link from 'next/link';
-import { PropsWithChildren, memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Flexbox } from 'react-layout-kit';
+import {ActionIcon, Icon} from '@lobehub/ui';
+import {ItemType} from 'antd/es/menu/interface';
+import {CircleUserRound, LogOut, Maximize, Settings2,} from 'lucide-react';
+import {memo, PropsWithChildren} from 'react';
+import {useTranslation} from 'react-i18next';
+import {Flexbox} from 'react-layout-kit';
 import urlJoin from 'url-join';
 
-import type { MenuProps } from '@/components/Menu';
-import { DISCORD, DOCUMENTS, EMAIL_SUPPORT, GITHUB_ISSUES, mailTo } from '@/const/url';
-import { isServerMode } from '@/const/version';
-import DataImporter from '@/features/DataImporter';
-import { useOpenSettings } from '@/hooks/useInterceptingRoutes';
-import { usePWAInstall } from '@/hooks/usePWAInstall';
-import { useQueryRoute } from '@/hooks/useQueryRoute';
-import { configService } from '@/services/config';
-import { SettingsTabs } from '@/store/global/initialState';
-import { useUserStore } from '@/store/user';
-import { authSelectors } from '@/store/user/selectors';
+import type {MenuProps} from '@/components/Menu';
+import {useOpenSettings} from '@/hooks/useInterceptingRoutes';
+import {usePWAInstall} from '@/hooks/usePWAInstall';
+import {useQueryRoute} from '@/hooks/useQueryRoute';
+import {SettingsTabs} from '@/store/global/initialState';
+import {useUserStore} from '@/store/user';
+import {authSelectors} from '@/store/user/selectors';
 
-import { useNewVersion } from './useNewVersion';
+import {useNewVersion} from './useNewVersion';
 
 const NewVersionBadge = memo(
   ({
@@ -40,7 +22,7 @@ const NewVersionBadge = memo(
     showBadge,
     onClick,
   }: PropsWithChildren & { onClick: () => void; showBadge?: boolean }) => {
-    const { t } = useTranslation('common');
+    // const { t } = useTranslation('common');
     if (!showBadge)
       return (
         <Flexbox flex={1} onClick={onClick}>
@@ -58,7 +40,8 @@ const NewVersionBadge = memo(
 
 export const useMenu = () => {
   const router = useQueryRoute();
-  const { canInstall, install } = usePWAInstall();
+  const { canInstall } = usePWAInstall();
+  // const { canInstall, install } = usePWAInstall();
   const hasNewVersion = useNewVersion();
   const openSettings = useOpenSettings();
   const { t } = useTranslation(['common', 'setting', 'auth']);

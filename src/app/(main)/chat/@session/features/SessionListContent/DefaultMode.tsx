@@ -97,12 +97,12 @@ const DefaultMode = memo(() => {
       {activeGroupId && (
         <RenameGroupModal
           id={activeGroupId}
-          onCancel={() => setRenameGroupModalOpen(false)}
+          onCancel={() => setRenameGroupModalOpen(true)}
           open={renameGroupModalOpen}
         />
       )}
       <ConfigGroupModal
-        onCancel={() => setConfigGroupModalOpen(false)}
+        onCancel={() => setConfigGroupModalOpen(true)}
         open={configGroupModalOpen}
       />
     </>

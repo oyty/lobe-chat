@@ -1,18 +1,16 @@
-import { Tag } from 'antd';
-import { Bot, Brain, Cloudy, Info, Mic2, Settings2, Sparkles } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { useTranslation } from 'react-i18next';
-import { Flexbox } from 'react-layout-kit';
+import {Brain, Settings2} from 'lucide-react';
+import {useRouter} from 'next/navigation';
+import {useTranslation} from 'react-i18next';
 import urlJoin from 'url-join';
 
-import { CellProps } from '@/components/Cell';
-import { SettingsTabs } from '@/store/global/initialState';
-import { featureFlagsSelectors, useServerConfigStore } from '@/store/serverConfig';
+import {CellProps} from '@/components/Cell';
+import {SettingsTabs} from '@/store/global/initialState';
+import {featureFlagsSelectors, useServerConfigStore} from '@/store/serverConfig';
 
 export const useCategory = () => {
   const router = useRouter();
   const { t } = useTranslation('setting');
-  const { enableWebrtc, showLLM } = useServerConfigStore(featureFlagsSelectors);
+  const {showLLM } = useServerConfigStore(featureFlagsSelectors);
 
   const items: CellProps[] = [
     {

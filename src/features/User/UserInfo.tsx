@@ -1,14 +1,12 @@
 'use client';
 
-import { createStyles } from 'antd-style';
-import { memo } from 'react';
-import { Flexbox, FlexboxProps } from 'react-layout-kit';
+import {createStyles} from 'antd-style';
+import {memo} from 'react';
+import {Flexbox, FlexboxProps} from 'react-layout-kit';
+import {useUserStore} from '@/store/user';
+import {userProfileSelectors} from '@/store/user/selectors';
 
-import PlanTag from '@/features/User/PlanTag';
-import { useUserStore } from '@/store/user';
-import { userProfileSelectors } from '@/store/user/selectors';
-
-import UserAvatar, { type UserAvatarProps } from './UserAvatar';
+import UserAvatar, {type UserAvatarProps} from './UserAvatar';
 
 const useStyles = createStyles(({ css, token }) => ({
   nickname: css`
@@ -29,9 +27,9 @@ export interface UserInfoProps extends FlexboxProps {
 const UserInfo = memo<UserInfoProps>(({ avatarProps, ...rest }) => {
   const { styles, theme } = useStyles();
 
-  const [nickname, username] = useUserStore((s) => [
+  const [nickname] = useUserStore((s) => [
     userProfileSelectors.nickName(s),
-    userProfileSelectors.username(s),
+    // userProfileSelectors.username(s),
   ]);
 
   return (

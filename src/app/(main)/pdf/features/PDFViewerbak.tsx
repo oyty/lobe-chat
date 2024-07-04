@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { Document, Page, pdfjs, PDFViewer  } from 'react-pdf';
+import React, {useEffect, useState} from 'react';
+import {Document, Page, pdfjs} from 'react-pdf';
 // import { Document, Page, pdfjs, PDFViewer  } from '@react-pdf/renderer';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`
@@ -38,7 +38,7 @@ const PDFViewerPage: React.FC = () => {
     <div style={{ margin: '0 auto' }}>
       {
         url ?
-        (   
+        (
             <>
                 <Document file={url}>
                     <Page pageNumber={pageNumber} />
@@ -50,10 +50,10 @@ const PDFViewerPage: React.FC = () => {
                         <Page pageNumber={3} />
                     </Document>
                 </PDFViewer> */}
-                <div style={{display: 'flex',justifyContent: 'center',alignItems: 'center', marginTop: '20px'}}>
-                    <button onClick={ () => handleChangePage('prev') }>上一页</button>
+                <div style={{alignItems: 'center',display: 'flex',justifyContent: 'center', marginTop: '20px'}}>
+                    <button onClick={ () => handleChangePage('prev') } type={"submit"}>上一页</button>
                     <span style={{margin: '0 10px'}}>{pageNumber} / {total}</span>
-                    <button onClick={ ()=> handleChangePage('next') }>下一页</button>
+                    <button onClick={ ()=> handleChangePage('next') } type={"submit"}>下一页</button>
                 </div>
                 {/* <iframe src={url} width="100%" height="100%"></iframe> */}
             </>

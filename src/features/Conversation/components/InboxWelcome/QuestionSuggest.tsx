@@ -1,17 +1,11 @@
 'use client';
 
-import { ActionIcon } from '@lobehub/ui';
-import { createStyles } from 'antd-style';
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-import { memo, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Flexbox } from 'react-layout-kit';
-
-import { USAGE_DOCUMENTS } from '@/const/url';
-import { useSendMessage } from '@/features/ChatInput/useSend';
-import { useChatStore } from '@/store/chat';
-import { apiRandomHintList } from '@/api';
+import {createStyles} from 'antd-style';
+import {memo, useEffect, useState} from 'react';
+import {useTranslation} from 'react-i18next';
+import {Flexbox} from 'react-layout-kit';
+import {useSendMessage} from '@/features/ChatInput/useSend';
+import {useChatStore} from '@/store/chat';
 
 const useStyles = createStyles(({ css, token, responsive }) => ({
   card: css`

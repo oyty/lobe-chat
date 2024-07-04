@@ -5,6 +5,7 @@ import { DEFAULT_MODEL, DEFAULT_PROVIDER } from './llm';
 export const DEFAULT_SYSTEM_AGENT_ITEM: SystemAgentItem = {
   model: DEFAULT_MODEL,
   provider: DEFAULT_PROVIDER,
+  source: '',
 };
 
 export const DEFAULT_SYSTEM_AGENT_CONFIG: UserSystemAgentConfig = {

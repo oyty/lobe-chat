@@ -5,7 +5,6 @@ import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
 import { enableAuth } from '@/const/auth';
-import DataStatistics from '@/features/User/DataStatistics';
 import UserInfo from '@/features/User/UserInfo';
 import UserLoginOrSignup from '@/features/User/UserLoginOrSignup/Community';
 import { useUserStore } from '@/store/user';

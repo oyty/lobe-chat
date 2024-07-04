@@ -10,6 +10,7 @@ const API_PROXY_ENDPOINT = process.env.API_PROXY_ENDPOINT || '';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
 
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   basePath,
@@ -157,7 +158,11 @@ const nextConfig = {
     // due to google api not work correct in some countries
     // we need a proxy to bypass the restriction
     { destination: `${API_PROXY_ENDPOINT}/api/chat/google`, source: '/api/chat/google' },
-    { destination: `http://139.196.191.228:19000`, source: '/baseAddress' },
+    { destination: `${API_PROXY_ENDPOINT}`, source: '/baseAddress' },
+    { destination: `${API_PROXY_ENDPOINT}/prompt/agent/list`, source: '/prompt/agent/list' },
+    { destination: `${API_PROXY_ENDPOINT}/prompt/agent/fixed`, source: '/prompt/agent/fixed' },
+    { destination: `${API_PROXY_ENDPOINT}/prompt/question/hint`, source: '/prompt/question/hint' },
+    { destination: `${API_PROXY_ENDPOINT}/prompt/agent/market`, source: '/prompt/agent/market' },
   ],
 
   webpack(config) {

@@ -1,18 +1,15 @@
-import { useRouter } from 'next/navigation';
-import { memo } from 'react';
-import { Flexbox } from 'react-layout-kit';
+import {useRouter} from 'next/navigation';
+import {memo} from 'react';
+import {Flexbox} from 'react-layout-kit';
 
 import BrandWatermark from '@/components/BrandWatermark';
 import Menu from '@/components/Menu';
-import { useUserStore } from '@/store/user';
-import { authSelectors } from '@/store/user/selectors';
-
-import DataStatistics from '../DataStatistics';
+import {useUserStore} from '@/store/user';
+import {authSelectors} from '@/store/user/selectors';
 import UserInfo from '../UserInfo';
 import UserLoginOrSignup from '../UserLoginOrSignup';
-import LangButton from './LangButton';
 import ThemeButton from './ThemeButton';
-import { useMenu } from './useMenu';
+import {useMenu} from './useMenu';
 
 const PanelContent = memo<{ closePopover: () => void }>(({ closePopover }) => {
   const router = useRouter();

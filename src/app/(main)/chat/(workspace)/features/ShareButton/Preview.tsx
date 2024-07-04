@@ -1,18 +1,15 @@
-import { Avatar, ChatHeaderTitle, Markdown } from '@lobehub/ui';
-import { LobeChat } from '@lobehub/ui/brand';
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Flexbox } from 'react-layout-kit';
-
-import pkg from '@/../package.json';
+import {Avatar, ChatHeaderTitle, Markdown} from '@lobehub/ui';
+import {memo} from 'react';
+import {useTranslation} from 'react-i18next';
+import {Flexbox} from 'react-layout-kit';
 import ChatList from '@/features/Conversation/components/ChatList';
-import { useAgentStore } from '@/store/agent';
-import { agentSelectors } from '@/store/agent/selectors';
-import { useSessionStore } from '@/store/session';
-import { sessionMetaSelectors, sessionSelectors } from '@/store/session/selectors';
+import {useAgentStore} from '@/store/agent';
+import {agentSelectors} from '@/store/agent/selectors';
+import {useSessionStore} from '@/store/session';
+import {sessionMetaSelectors, sessionSelectors} from '@/store/session/selectors';
 
-import { useStyles } from './style';
-import { FieldType } from './type';
+import {useStyles} from './style';
+import {FieldType} from './type';
 
 const Preview = memo<FieldType & { title?: string }>(
   ({ title, withSystemRole, withBackground, withFooter }) => {
@@ -63,7 +60,7 @@ const Preview = memo<FieldType & { title?: string }>(
             {withFooter ? (
               <Flexbox align={'center'} className={styles.footer} gap={4}>
                 {/*<LobeChat type={'combine'}/>*/}
-                <div style={{fontSize: '26px', color: '#000', fontFamily: 'Nunito', fontWeight: 'bold'}}>
+                <div style={{color: '#000', fontFamily: 'Nunito', fontSize: '26px', fontWeight: 'bold'}}>
                   云路助手
                 </div>
                 {/*<div className={styles.url}>{pkg.homepage}</div>*/}

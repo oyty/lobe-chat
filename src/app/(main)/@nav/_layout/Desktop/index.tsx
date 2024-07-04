@@ -14,9 +14,10 @@ const Nav = memo(() => {
   const [isPDF, setIsPDF] = useState(true);
 
   useEffect(() => {
-    setIsPDF(window.location.href.indexOf('.pdf') > -1?false:true);
+    const isExist = !window.location.href.includes('.pdf');
+    setIsPDF(isExist);
   }, []);
-  
+
   return (
     isPDF &&
     <SideNav

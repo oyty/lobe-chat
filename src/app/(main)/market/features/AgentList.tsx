@@ -1,14 +1,14 @@
 'use client';
 
-import { Grid, SpotlightCardProps } from '@lobehub/ui';
-import { Empty, Skeleton } from 'antd';
-import { createStyles } from 'antd-style';
+import {Grid, SpotlightCardProps} from '@lobehub/ui';
+import {Empty, Skeleton} from 'antd';
+import {createStyles} from 'antd-style';
 import isEqual from 'fast-deep-equal';
-import { memo, useCallback, useLayoutEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import {memo, useCallback, useLayoutEffect} from 'react';
+import {useTranslation} from 'react-i18next';
 import LazyLoad from 'react-lazy-load';
 
-import { agentMarketSelectors, useMarketStore } from '@/store/market';
+import {agentMarketSelectors, useMarketStore} from '@/store/market';
 
 import AgentCard from './AgentCard';
 
@@ -42,7 +42,8 @@ const AgentList = memo<AgentListProps>(({ mobile }) => {
   const { isLoading } = useFetchAgentList();
   const agentList = useMarketStore(agentMarketSelectors.getAgentList, isEqual);
   const { styles } = useStyles();
-  const recentLength = mobile ? 3 : 6;
+  const recentLength = mobile ? 0 : 0;
+  // const recentLength = 0;
 
   useLayoutEffect(() => {
     // refs: https://github.com/pmndrs/zustand/blob/main/docs/integrations/persisting-store-data.md#hashydrated
@@ -61,8 +62,8 @@ const AgentList = memo<AgentListProps>(({ mobile }) => {
   if (isLoading || (!searchKeywords && agentList?.length === 0)) {
     return (
       <>
-        <h2 className={styles.title}>{t('title.recentSubmits')}</h2>
-        <Skeleton paragraph={{ rows: 8 }} title={false} />
+        {/*<h2 className={styles.title}>{t('title.recentSubmits')}</h2>*/}
+        {/*<Skeleton paragraph={{ rows: 8 }} title={false} />*/}
         <h2 className={styles.title}>{t('title.allAgents')}</h2>
         <Skeleton paragraph={{ rows: 8 }} title={false} />
       </>
@@ -82,12 +83,12 @@ const AgentList = memo<AgentListProps>(({ mobile }) => {
 
   return (
     <>
-      <h2 className={styles.title}>{t('title.recentSubmits')}</h2>
-      <Grid rows={3}>
-        {agentList.slice(0, recentLength).map((item) => (
-          <AgentCard key={item.identifier} {...item} />
-        ))}
-      </Grid>
+      {/*<h2 className={styles.title}>{t('title.recentSubmits')}</h2>*/}
+      {/*<Grid rows={3}>*/}
+      {/*  {agentList.slice(0, recentLength).map((item) => (*/}
+      {/*    <AgentCard key={item.identifier} {...item} />*/}
+      {/*  ))}*/}
+      {/*</Grid>*/}
       <h2 className={styles.title}>{t('title.allAgents')}</h2>
       <Grid rows={3}>
         {agentList.slice(recentLength).map((item) => (

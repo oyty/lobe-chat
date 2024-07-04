@@ -56,7 +56,7 @@ const SessionList = memo<SessionListProps>(({ dataSource, groupId, showAddButton
       </LazyLoad>
     ))
   ) : showCreateSession ? (
-    showAddButton && <AddButton groupId={groupId} />
+    showAddButton && <AddButton groupId={groupId} /> && false
   ) : (
     <Center>
       <Empty description={t('emptyAgent')} image={Empty.PRESENTED_IMAGE_SIMPLE} />

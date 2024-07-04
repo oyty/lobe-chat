@@ -18,11 +18,12 @@ export const useSendMessage = () => {
     s.updateInputMessage,
   ]);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [source, updateAgentConfig] = useAgentStore((s) => {
     const config = agentSelectors.currentAgentConfig(s);
     return [config.params?.source, s.updateAgentConfig];
   });
-
+  // const updateAgentConfig = useAgentStore((s) => s.updateAgentConfig);
   return useCallback((params: UseSendMessageParams = {}) => {
     const store = useChatStore.getState();
     if (chatSelectors.isAIGenerating(store)) return;

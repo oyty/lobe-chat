@@ -1,11 +1,8 @@
 'use client';
 
-import { ChatHeader } from '@lobehub/ui';
-import { LobeChat } from '@lobehub/ui/brand';
-import { createStyles } from 'antd-style';
-import { memo } from 'react';
-
-import ShareAgentButton from '../../features/ShareAgentButton';
+import {ChatHeader} from '@lobehub/ui';
+import {createStyles} from 'antd-style';
+import {memo} from 'react';
 
 export const useStyles = createStyles(({ css, token }) => ({
   logo: css`
@@ -15,12 +12,17 @@ export const useStyles = createStyles(({ css, token }) => ({
 }));
 
 const Header = memo(() => {
-  const { styles } = useStyles();
+  // const { styles } = useStyles();
 
   return (
     <ChatHeader
-      left={<LobeChat className={styles.logo} extra={'Discover'} size={36} type={'text'} />}
-      right={<ShareAgentButton />}
+      left={
+      // <LobeChat className={styles.logo} extra={'Discover'} size={36} type={'text'} />
+        <div style={{alignSelf: 'flex-start',color: '#000', fontFamily: 'Nunito', fontSize: '26px', fontWeight: 'bold'}}>
+        云路助手
+      </div>
+    }
+      // right={<ShareAgentButton />}
     />
   );
 });

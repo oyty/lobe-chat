@@ -22,7 +22,7 @@ const PDFViewerPage: React.FC = () => {
             }
         }
     }, []);
-    
+
     //监听iframeRef
     useEffect(() => {
         const checkIframe = () => {
@@ -39,12 +39,12 @@ const PDFViewerPage: React.FC = () => {
 
         return () => clearTimeout(timeoutId);
     }, [iframeRef]);
-    
+
   return (
     <div style={{ width: '100%' }}>
       {
         url ?
-        <iframe ref={iframeRef} src={'/pdfjs/web/viewer.html?file=' + encodeURIComponent(url)} width="100%" height="100%"></iframe>
+        <iframe height="100%" ref={iframeRef} src={'/pdfjs/web/viewer.html?file=' + encodeURIComponent(url)} width="100%"></iframe>
         : ''
       }
     </div>

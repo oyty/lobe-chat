@@ -1,13 +1,13 @@
 'use client';
 
-import { FluentEmoji, Markdown } from '@lobehub/ui';
-import { createStyles } from 'antd-style';
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Center, Flexbox } from 'react-layout-kit';
+import {FluentEmoji, Markdown} from '@lobehub/ui';
+import {createStyles} from 'antd-style';
+import {memo} from 'react';
+import {useTranslation} from 'react-i18next';
+import {Center, Flexbox} from 'react-layout-kit';
 
-import { useGreeting } from '@/hooks/useGreeting';
-import { featureFlagsSelectors, useServerConfigStore } from '@/store/serverConfig';
+import {useGreeting} from '@/hooks/useGreeting';
+import {featureFlagsSelectors, useServerConfigStore} from '@/store/serverConfig';
 
 import QuestionSuggest from './QuestionSuggest';
 
@@ -28,7 +28,6 @@ const useStyles = createStyles(({ css, responsive }) => ({
   title: css`
     margin-top: 0.2em;
     margin-bottom: 0;
-
     font-size: 32px;
     font-weight: bolder;
     line-height: 1;
@@ -56,9 +55,7 @@ const RAGWelcome = memo(() => {
           {t('guide.defaultMessage')}
         </Markdown>
         {
-          showWelcomeSuggest && <>
-            <QuestionSuggest mobile={mobile} />
-          </>
+          showWelcomeSuggest && <QuestionSuggest mobile={mobile} />
         }
       </Flexbox>
     </Center>

@@ -23,7 +23,7 @@ interface ModelOption {
 }
 
 interface ModelSelectProps {
-  onChange?: (props: { model: string; provider: string }) => void;
+  onChange?: (props: { model: string; provider: string; source: string }) => void;
   showAbility?: boolean;
   value?: string;
 }
