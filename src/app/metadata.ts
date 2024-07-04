@@ -46,7 +46,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
     },
     title: {
       default: t('chat.title'),
-      template: '%s · LobeChat',
+      template: '%s · 云路助手',
     },
     twitter: {
       card: 'summary_large_image',

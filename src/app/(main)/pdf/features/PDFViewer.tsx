@@ -10,6 +10,7 @@ const PDFViewerPage: React.FC = () => {
     useEffect(() => {
         const searchParams = new URLSearchParams(window.location.search);
         const newUrl = searchParams.get('url');
+        console.log(newUrl)
         setUrl(newUrl??'');
         const pageCountString = newUrl?newUrl.slice(newUrl.indexOf('.pdf') + 4):'';
         const params = pageCountString.split(/#|&/);
