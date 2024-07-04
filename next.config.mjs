@@ -1,7 +1,6 @@
 import nextPWA from '@ducanh2912/next-pwa';
 import analyzer from '@next/bundle-analyzer';
 import { withSentryConfig } from '@sentry/nextjs';
-
 const isProd = process.env.NODE_ENV === 'production';
 const buildWithDocker = process.env.DOCKER === 'true';
 
