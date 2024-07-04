@@ -28,6 +28,7 @@ export const parseSystemAgent = (envString: string = ''): Partial<UserSystemAgen
         config[key as keyof UserSystemAgentConfig] = {
           model: model.trim(),
           provider: provider.trim(),
+          source: '',
         };
       }
     } else {
