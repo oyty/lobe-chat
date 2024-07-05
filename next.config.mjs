@@ -156,8 +156,8 @@ const nextConfig = {
   rewrites: async () => [
     // due to google api not work correct in some countries
     // we need a proxy to bypass the restriction
+    { destination: `${API_PROXY_ENDPOINT}/baseAddress`, source: '/baseAddress' },
     { destination: `${API_PROXY_ENDPOINT}/api/chat/google`, source: '/api/chat/google' },
-    { destination: `${API_PROXY_ENDPOINT}`, source: '/baseAddress' },
     { destination: `${API_PROXY_ENDPOINT}/prompt/agent/list`, source: '/prompt/agent/list' },
     { destination: `${API_PROXY_ENDPOINT}/prompt/agent/fixed`, source: '/prompt/agent/fixed' },
     { destination: `${API_PROXY_ENDPOINT}/prompt/question/hint`, source: '/prompt/question/hint' },

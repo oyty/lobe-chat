@@ -5,10 +5,10 @@ const OpenAI: ModelProviderCard = {
   chatModels: [
     {
       description: '适用于各种文本生成和理解任务',
-      displayName: 'qwen/Qwen2-7B-Instruct-AWQ',
+      displayName: 'tuka-cloud',
       enabled: true,
       functionCall: true,
-      id: 'qwen/Qwen2-7B-Instruct-AWQ',
+      id: 'tuka-cloud',
       tokens: 16_385,
     },
     // {
