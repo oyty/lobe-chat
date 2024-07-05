@@ -35,6 +35,14 @@
     "stop": "停止",
     "warp": "换行"
   },
+  "data": {
+    "desc": "实现与本地数据库的智能交互，让数据处理更加便捷高效",
+    "title": "云路数据交互"
+  },
+  "rag": {
+    "desc": "高效、精准地检索和管理你的文件，让信息触手可及",
+    "title": "云路文件检索"
+  },
   "messageAction": {
     "delAndRegenerate": "删除并重新生成",
     "regenerate": "重新生成"

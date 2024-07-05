@@ -84,7 +84,7 @@ export class Meta {
           url: image,
         },
       ],
-      locale: 'en-US',
+      locale: 'zh-CN',
       siteName: '云路助手',
       title,
       type,
